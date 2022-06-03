@@ -3,6 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
+  plugins: ['simple-import-sort', 'import'],
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-essential',
@@ -12,6 +13,7 @@ module.exports = {
     '@vue/eslint-config-prettier',
   ],
   env: {
+    es6: true,
     'vue/setup-compiler-macros': true,
   },
   overrides: [
@@ -20,4 +22,11 @@ module.exports = {
       extends: ['plugin:cypress/recommended'],
     },
   ],
+  rules: {
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+  },
 };
