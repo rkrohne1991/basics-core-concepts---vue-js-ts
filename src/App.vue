@@ -9,12 +9,13 @@
     <p v-once>Starting Counter: {{ counter }}</p>
     <p>Result: {{ counter }}</p>
     <input type="text" v-model="name" />
+    <input type="text" v-model="lastName" />
     <button @click="resetInput">Reset Input</button>
     <p>Your Name: {{ fullname }}</p>
-    <form @submit.prevent="submitForm">
+    <!-- <form @submit.prevent="submitForm">
       <input type="text" />
       <button>Sign Up</button>
-    </form>
+    </form> -->
   </section>
 </template>
 
@@ -30,16 +31,41 @@ export default defineComponent({
     return {
       counter: 10,
       name: '',
+      lastName: '',
+      // fullname: '',
       // confirmedName: '',
     };
+  },
+  watch: {
+    counter(value: number) {
+      if (value > 50) {
+        setTimeout(() => {
+          this.counter = 0;
+        }, 2000);
+      }
+    },
+    //   name(value: string) {
+    //     if (value === '') {
+    //       this.fullname = '';
+    //     } else {
+    //       this.fullname = value + ' ' + this.lastName;
+    //     }
+    //   },
+    //   lastName(value: string) {
+    //     if (value === '') {
+    //       this.fullname = '';
+    //     } else {
+    //       this.fullname = this.name + ' ' + value;
+    //     }
+    //   },
   },
   computed: {
     fullname(): string {
       console.log('running again');
-      if (this.name === '') {
+      if (this.name === '' || this.lastName === '') {
         return '';
       }
-      return this.name + ' ' + 'Schwarzmuller';
+      return this.name + ' ' + this.lastName;
     },
   },
   methods: {
@@ -53,9 +79,9 @@ export default defineComponent({
     // confirmInput() {
     //   this.confirmedName = this.name;
     // },
-    submitForm() {
-      console.log('submitted!');
-    },
+    // submitForm() {
+    //   console.log('submitted!');
+    // },
     setName(event: Event) {
       this.name = (event.target as HTMLInputElement).value;
     },
