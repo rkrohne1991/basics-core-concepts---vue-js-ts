@@ -8,12 +8,9 @@
     <button @click="reduce(5)">Subtract 5</button>
     <p v-once>Starting Counter: {{ counter }}</p>
     <p>Result: {{ counter }}</p>
-    <input
-      v-on:input="setName($event, 'Schawrzmuller')"
-      type="text"
-      v-on:keyup.enter="confirmInput"
-    />
-    <p>Your Name: {{ confirmedName }}</p>
+    <input type="text" v-model="name" />
+    <button @click="resetInput">Reset Input</button>
+    <p>Your Name: {{ fullname }}</p>
     <form @submit.prevent="submitForm">
       <input type="text" />
       <button>Sign Up</button>
@@ -33,24 +30,43 @@ export default defineComponent({
     return {
       counter: 10,
       name: '',
-      confirmedName: '',
+      // confirmedName: '',
     };
   },
-  methods: {
-    confirmInput() {
-      this.confirmedName = this.name;
+  computed: {
+    fullname(): string {
+      console.log('running again');
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Schwarzmuller';
     },
+  },
+  methods: {
+    // outputFullname() {
+    //   console.log('running again...');
+    //   if (this.name === '') {
+    //     return '';
+    //   }
+    //   return this.name + ' ' + 'Schwarzmuller';
+    // },
+    // confirmInput() {
+    //   this.confirmedName = this.name;
+    // },
     submitForm() {
       console.log('submitted!');
     },
-    setName(event: Event, lastName: string) {
-      this.name = (event.target as HTMLInputElement).value + ' ' + lastName;
+    setName(event: Event) {
+      this.name = (event.target as HTMLInputElement).value;
     },
     add(num: number) {
       this.counter += num;
     },
     reduce(num: number) {
       this.counter -= num;
+    },
+    resetInput() {
+      this.name = '';
     },
   },
 });
