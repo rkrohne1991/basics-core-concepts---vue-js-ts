@@ -25,6 +25,7 @@
     <h1>Vue Dynamic Styling</h1>
   </header>
   <section id="styling">
+<<<<<<< HEAD
     <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
     <div
       :class="['demo', { active: boxBSelected }]"
@@ -35,6 +36,11 @@
       :class="{ active: boxCSelected }"
       @click="boxSelected('C')"
     ></div>
+=======
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+>>>>>>> c0e30520529dfbc0d6a78574d5ea07354f163377
   </section>
   <!-- Vue Dynamic Styling -->
 </template>
@@ -46,6 +52,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+<<<<<<< HEAD
 export default defineComponent({
   data() {
     return {
@@ -72,6 +79,9 @@ export default defineComponent({
     },
   },
 });
+=======
+export default defineComponent({});
+>>>>>>> c0e30520529dfbc0d6a78574d5ea07354f163377
 
 // Vue Events
 // import { defineComponent } from 'vue';

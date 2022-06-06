@@ -91,12 +91,21 @@ header {
 
 html {
   font-family: 'Jost', sans-serif;
+<<<<<<< HEAD
 }
 
 body {
   margin: 0;
 }
 
+=======
+}
+
+body {
+  margin: 0;
+}
+
+>>>>>>> c0e30520529dfbc0d6a78574d5ea07354f163377
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 3rem;
@@ -122,9 +131,12 @@ header {
   border: 2px dashed #ccc;
 }
 
+<<<<<<< HEAD
 .active {
   border-color: red;
   background-color: salmon;
 }
 
+=======
+>>>>>>> c0e30520529dfbc0d6a78574d5ea07354f163377
 /* Vue Dynamic Styling */
